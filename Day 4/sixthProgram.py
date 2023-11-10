@@ -1,6 +1,6 @@
 import cv2
 import time
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(1)
 time.sleep(2)
 while True:
     _,img = cam.read()

@@ -4,7 +4,7 @@ import imutils
 img = cv2.imread("demo.jpg")
 cv2.imshow("the demo image", img)
 
-resizedImg = imutils.resize(img, width=40)
+resizedImg = imutils.resize(img, width=1000)
 
 cv2.imwrite("resised.jpg", resizedImg)
 cv2.imshow("the resized image", resizedImg)
