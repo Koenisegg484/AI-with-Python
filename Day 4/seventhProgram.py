@@ -46,18 +46,17 @@
 import cv2, imutils
 import time
 
-cam = cv2.VideoCapture(1) ## IP Cam
+cam = cv2.VideoCapture(1)
 origImg = None
 area = 500
-time.sleep(1)  #wait 1 sec for camera
+time.sleep(1)
 
 while True:
     _,img = cam.read()
     img = imutils.resize(img, width=500)
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blured = cv2.GaussianBlur(gray,(21,21),0)
-    if origImg is None:  ## I don't know why but I have to reload 1st image
-                         ## to diffImg be correct
+    if origImg is None:
         _,img = cam.read()
         img = imutils.resize(img, width=500)
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -82,10 +81,9 @@ while True:
             cnt+=1
     cv2.imshow("FaceDetection",img)
     key=cv2.waitKey(1) & 0xFF
-    if key==ord("q"):   ## quit
+    if key==ord("q"):
         break
-    if key==ord("r"):   ## reload first image again
-                        ## new scene or stabilization
+    if key==ord("r"):
         origImg = None
 cam.release()
 cv2.destroyAllWindows()
